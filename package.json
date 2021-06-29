@@ -1,0 +1,29 @@
+{
+  "name": "Bakmi_Polim",
+  "version": "1.0.0",
+  "description": "Pair projects phase 1\r ## ERD \r Project ini terdiri dari 3 table yaitu Users, Foods, dan Invoices.\r Dimana Invoices merupakan junction table dari hasil many to many relationship.\r ![erd](./assets/simple_restaurant.png \"erd\")\r ## MVP\r > - Project ini menggunakan Nodemailer untuk mengirim email dan memverifikasi users ketika register serta mengkonfirmasi pesanan yang telah di beli oleh users/customers.\r > - Project ini juga menggunakan bcrypt untuk mengamankan passwords users",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/039710/Bakmi_Polim.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/039710/Bakmi_Polim/issues"
+  },
+  "homepage": "https://github.com/039710/Bakmi_Polim#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "sequelize": "^6.6.4",
+    "sequelize-cli": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
