@@ -9,7 +9,6 @@ Dimana Invoices merupakan junction table dari hasil many to many relationship.
 # Backend
 ## MVP
 > - Project ini menggunakan Nodemailer untuk mengirim email dan memverifikasi users ketika register serta mengkonfirmasi pesanan yang telah di beli oleh users/customers.
-> - Project ini juga menggunakan bcrypt untuk mengamankan passwords users
 
 
 ## Alur program - TBD
@@ -34,6 +33,9 @@ Dimana Invoices merupakan junction table dari hasil many to many relationship.
 
 ## Hook
 > 1. mengupdate is_login menjadi true ketika user login
+> 2. hoook before create untuk memasukan password yg sudah di hash
+## Middleware
+> 1. di gunakan meredirect user ketika login ke page tertentu
 
 ## Instance methods
 > 1. mengkonversi timestamp dari output new Date() menjadi toLocaleDateString di model User
