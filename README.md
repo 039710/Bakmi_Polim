@@ -41,8 +41,14 @@ Dimana Invoices merupakan junction table dari hasil many to many relationship.
 > 1. mengkonversi timestamp dari output new Date() menjadi toLocaleDateString di model User
 > 2. menkonversi price pada instance Food menjadi toLolaceString dengan format IDR.
 
+## Static methods
+> 1. menambahkan titel Mr atau Mrs berdasarkan gender
 ## Helper
-> 1. menggunakan helper function untuk menghitung total harga pada Model Invoice
+> 1. menggunakan helper function untuk menghitung total harga pada ejs
 
 # Frontend
 >   ## 1. Bootstrap
+
+
+1. kalau status finish tidak boleh di hapus
+2. super many to many 1
