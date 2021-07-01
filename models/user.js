@@ -11,17 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // User.belongsToMany(models.Food, {through: models.Invoice})
-      // User.hasMany(models.Invoice)
+      // User.BelongsToMany(models.Food, {through: models.Invoice})
     }
     getBirthDate() {
       return new Date(this.birth_date).toISOString().split('T')[0]
-
     }
   };
   User.init({
     first_name: { 
       type: DataTypes.STRING,
-      validation: {
+      validate: {
         notEmpty: {
           msg: 'First name cannot be empty!',
         }
@@ -29,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     last_name: { 
       type: DataTypes.STRING,
-      validation: {
+      validate: {
         notEmpty: {
           msg: 'Last name cannot be empty!',
         }
@@ -37,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     email: { 
       type: DataTypes.STRING,
-      validation: {
+      validate: {
         notEmpty: {
           msg: 'Email cannot be empty!',
         },
@@ -47,8 +46,8 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     phone_number: { 
-      type: DataTypes.INTEGER,
-      validation: {
+      type: DataTypes.STRING,
+      validate: {
         notEmpty: {
           msg: 'Phone number cannot be empty!'
         }
@@ -56,15 +55,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     birth_date: { 
       type: DataTypes.DATE,
-      validation: {
+      validate : {
         notEmpty: {
-          msg: 'Birth date cannot be empty!'
+          msg : 'Birth date cannot be empty!'
         }
       }
     },
     address: { 
       type: DataTypes.STRING,
-      validation: {
+      validate: {
         notEmpty: {
           msg: 'Address cannot be empty!'
         }
@@ -73,7 +72,7 @@ module.exports = (sequelize, DataTypes) => {
     role: DataTypes.STRING,
     password: { 
       type: DataTypes.STRING,
-      validation: {
+      validate: {
         notEmpty: {
           msg: 'Password cannot be empty!'
         }

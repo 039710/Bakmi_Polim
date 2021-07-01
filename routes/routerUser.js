@@ -1,8 +1,13 @@
 const router = require('express').Router();
 const upload = require('../middlewares/multer')
 const Controller = require('../controllers/controllerUser')
-
-// login for admin and user
+const session = require('express-session');
+router.use(session({
+    secret: 'ssshhhhh',
+    resave : false,
+    saveUninitialized : true,
+}));
+router.get('/logout',Controller.logOut);
 router.get('/login',Controller.loginGet)
 router.post('/login',Controller.loginPost)
 // user

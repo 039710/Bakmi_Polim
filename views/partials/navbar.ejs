@@ -9,11 +9,20 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Foods</a>
             </li>
-            <li class="nav-item active">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="/user/profile">Profiles</a>
-            </li>
+            </li> -->
             <li class="nav-item">
-                <a class="nav-link" href="#">Your order</a>
+                <a class="nav-link" <%= user.id ? `href=/user/logout` : `href=/user/login` %> >
+                    <%= user.id ? "Logout" : "Login" %>
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Your order</a> -->
+                <a class="nav-link" <%= user.id ? `href=/user/order` : `href=#` %> >
+                    <%= user.id ? "Your order" : "" %>
+                </a>
             </li>
             <li class="ml-2 nav-item">
                 <!-- Cart button and Cart Modal -->

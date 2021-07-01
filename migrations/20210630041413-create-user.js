@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       phone_number: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       birth_date: {
         type: Sequelize.DATE

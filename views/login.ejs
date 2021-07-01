@@ -6,11 +6,11 @@
     <form action = "/user/login" method="post">
         <div class="mb-3">
             <label class="form-label">Email Address</label>
-            <input type="email" class="form-control" name="email">
+            <input type="email" class="form-control" name="email" required>
         </div>
         <div class="mb-3">
             <label class="form-label">Password</label>
-            <input type="password" class="form-control" name="password">
+            <input type="password" class="form-control" name="password" required>
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-warning">Login</button>
@@ -18,6 +18,11 @@
             <a href="/user/register">Don't have any account</a>
         </div>
       </form>
+      <div class = "container mt-5">
+          <% if(err.length) { %>
+            <h5 style = "color:red"><%= err[0] %></h5>
+          <% } %>
+      </div>
 </div>
 
 

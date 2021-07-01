@@ -6,4 +6,7 @@ const idAdmin = function(req,res,next){
     }
 }
 
+const loginType = function(req,res,next){
+    
+}
 module.exports = isAdmin
