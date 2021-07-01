@@ -1,5 +1,7 @@
 const {Food,User} = require('../models/index')
 const {Op} = require('sequelize')
+const changeFormatPrice = require('../helper/changeFormatPrice')
+let bcrypt = require('bcryptjs');
 class Controller{
     static logOut(req,res){
         req.session.destroy()
@@ -26,7 +28,6 @@ class Controller{
             res.redirect('/')
         })
         .catch(err => {
-            console.log(err.message);
             let errorMessages = err.errors.map(el => el.message)
             res.redirect(`/user/register?message=${errorMessages}`)
         })
@@ -35,29 +36,20 @@ class Controller{
         res.render('login.ejs', {title : 'Login',err : [],user : {id:0}})
     }
     static loginPost(req, res) {
-        console.log(req.body)
         User.findOne({where: {
                 email : {
                     [Op.eq] : req.body.email
-                },
-                password : {
-                    [Op.eq] : req.body.password
                 }
             }})
             .then((result) => {
-                console.log('berhasil login')
-                if(result){
-                    console.log(req.session,'ini session')
+                if(result && bcrypt.compareSync(req.body.password, !result.password ? "abc" : result.password)){
                     req.session.user = {
                         id : result.id,
                         role : result.role
                     }
-                    console.log(req.session,'ini session ----')
                     if(result.role === 'Customer'){
-                        console.log('masuk tod')
                         res.redirect('/')
                     }else{
-                        console.log('masuk jing')
                         res.redirect('/user/admin')
                     }
                 }else{
@@ -69,9 +61,14 @@ class Controller{
             })
     }
     static profile(req, res) {
-        User.findAll().then(dataUser => {
-            if(dataUser.length){
-                res.render('profile.ejs', {dataUser, title : 'Profile',user:{}})
+        User.findByPk(req.session.user.id)
+        .then(dataUser => {
+            if(dataUser){
+                if(req.session.user.id){
+                    res.render('profile',{dataUser, title : 'Profile',user:req.session.user})
+                }else{
+                    res.render('profile',{dataUser, title : 'Profile',user:{id : 0}})
+                }
             }else{
                 res.redirect('/')
             }
@@ -81,9 +78,8 @@ class Controller{
         })
     }
     static profileEditGet(req, res) {
-        let id = +req.params.id
+        let id = req.session.user.id
         User.findByPk(id).then(dataUser => {
-            // console.log(dataUser);
             let errors = []
             if (req.query.message) {
                 errors = req.query.message.split(',')
@@ -95,9 +91,10 @@ class Controller{
         })
     }
     static profileEditPost(req, res) {
-        // console.log(124712940714789);
+        let salt = bcrypt.genSaltSync(10)
+        let hash = bcrypt.hashSync(req.body.password,salt)
         let id = +req.params.id
-        let { first_name, last_name, email, phone_number, birth_date, address, password } = req.body
+        let { first_name, last_name, email, phone_number, birth_date, address} = req.body
         let editedUser = {
             first_name,
             last_name,
@@ -105,7 +102,7 @@ class Controller{
             phone_number,
             birth_date,
             address,
-            password
+            password : hash
         }
         User.update(editedUser,{where: {id: id}}).then(() => {
             res.redirect('/user/profile')
@@ -115,9 +112,12 @@ class Controller{
             res.redirect(`/user/profile/${id}/edit?message=${errorMessages}`)
         })
     }
-    static delete(req, res) {
+    static deleteUser(req, res) {
         let id = +req.params.id
-        User.destroy({where: {id: id}}).then(() => {
+        User.destroy({where: {id: id}})
+        .then(() => {
+            console.log('deleted')
+            req.session.destroy()
             res.redirect('/')
         })
         .catch(err => {
@@ -128,12 +128,11 @@ class Controller{
         Food.findAll({
                 order : [['id']]
             }).then((foods)=>{
-                console.log(req.session)
                 if(req.session.user.role == 'Admin'){
                     if(req.session.user.id){
-                        res.render('admin-page',{foods, title : 'Admin Page',user:req.session.user})
+                        res.render('admin-page',{foods, title : 'Admin Page',user:req.session.user,changeFormatPrice})
                     }else{
-                        res.render('admin-page',{foods, title : 'Admin Page',user:{id : 0}})
+                        res.render('admin-page',{foods, title : 'Admin Page',user:{id : 0},changeFormatPrice})
                     }
                 }else{
                     res.redirect('/')
@@ -144,13 +143,19 @@ class Controller{
     }
 
     static addGet(req, res) {
-        
-        res.render('addMenu.ejs', {title : 'Admin Page - Add Menu',user:{}})
+        let errors = []
+            if (req.query.message) {
+                errors = req.query.message.split(',')
+            }
+        res.render('addMenu.ejs', {title : 'Admin Page - Add Menu',user:{},errors})
     }
 
     static addPost(req,res) {
-        let url = req.file.path.split('\\').join('/')
-        url = url.substring(6,url.length)
+        let url;
+        if(req.file){
+            url = req.file.path.split('\\').join('/')
+            url = url.substring(6,url.length)
+        }
         let newMenu = {
             name: req.body.name,
             description: req.body.description,
@@ -163,7 +168,8 @@ class Controller{
                 res.redirect('/user/admin')
         })
         .catch(err => {
-            res.send(err)
+            let errorMessages = err.errors.map(el => el.message)
+            res.redirect(`/user/admin/add?message=${errorMessages}`)
         })
     }
 
@@ -190,7 +196,6 @@ class Controller{
                 res.redirect('/user/admin')
             })
             .catch(err => {
-                console.log(err.message)
                 res.send(err)
             })
     }

@@ -1,4 +1,5 @@
 'use strict';
+let bcrypt = require('bcryptjs');
 const {
   Model
 } = require('sequelize');
@@ -10,8 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // User.belongsToMany(models.Food, {through: models.Invoice})
-      // User.BelongsToMany(models.Food, {through: models.Invoice})
+      User.belongsToMany(models.User,{through: models.Invoice, as : 'invoice'})
     }
     getBirthDate() {
       return new Date(this.birth_date).toISOString().split('T')[0]
@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           msg: 'First name cannot be empty!',
+        },
+        len: {
+          args : [2,30],
+          msg: 'Length of first name must be 4 characters upto 30 characters'
         }
       }
     },
@@ -31,6 +35,10 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           msg: 'Last name cannot be empty!',
+        },
+        len: {
+          args : [2,30],
+          msg: 'Length of last name must be 4 characters upto 30 characters'
         }
       }
     },
@@ -42,6 +50,10 @@ module.exports = (sequelize, DataTypes) => {
         },
         isEmail: {
           msg: 'Fill with the right email address format!'
+        },
+        len: {
+          args : [5,30],
+          msg: 'Length of email must be 5 characters upto 30 characters'
         }
       }
     },
@@ -50,6 +62,9 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           msg: 'Phone number cannot be empty!'
+        },
+        isInt : {
+          msg : "Phone number must be number not contains string!"
         }
       }
     },
@@ -75,6 +90,10 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           msg: 'Password cannot be empty!'
+        },
+        len: {
+          args : [5,100],
+          msg: 'Length of Passowrd must be 5 characters upto 100 characters'
         }
       }
     },
@@ -82,6 +101,10 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
       beforeCreate: (instance, options) => {
         instance.role = 'Customer'
+        // bcryptjs implementation
+        let salt = bcrypt.genSaltSync(10)
+        let hash = bcrypt.hashSync(instance.password,salt)
+        instance.password = hash
       }
     },
     sequelize,

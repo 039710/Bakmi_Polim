@@ -1,40 +1,51 @@
 <%- include('./partials/header') %>
 <%- include('./partials/navbar') %>
 <!-- CONTENT HERE -->
-    <div class="container">
-        <a href="/user/admin/add">Add Menu</a>
-        <table border="1" >
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>img_url</th>
-                    <th>price</th>
-                    <th>Stock</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% foods.forEach((menu)=>{ %>
-                    <tr>
-                        <td><%= menu.id %></td>
-                        <td><%= menu.name %></td>
-                        <td><%= menu.description %></td>
-                        <td>
-                            <img src="<%= menu.img_url %>" alt="" width="200" height="200">
-                        </td>
-                        <td><%= menu.price %></td>
-                        <td><%= menu.quantity %></td>
-                        <td>
-                            <a href="/user/admin/<%= menu.id %>/edit">Edit</a>
-                            <a href="/user/admin/<%= menu.id %>/delete">Delete</a>
-                        </td>
-                        
+    <div class="container-fluid">
+        <div class="container" style="width:90% !important;">
+            <br>
+            <div class="text-center">
+                <h1>Stock List</h1>
+            </div>
+            <div class="d-flex justify-content-end"> 
+                <a href="/user/admin/add" class="btn btn-warning">Add Menu</a>
+            </div>
+            <br>
+            <table class="table table-bordered" >
+                <thead>
+                    <tr class="bg-warning">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th style="width: 180px">Actions</th>
                     </tr>
-                <% }) %>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <% foods.forEach((menu)=>{ %>
+                        <tr>
+                            <td><%= menu.id %></td>
+                            <td><%= menu.name %></td>
+                            <td><%= menu.description %></td>
+                            <td>
+                                <img src="<%= menu.img_url %>" alt="" width="200" height="200">
+                            </td>
+                            <td><%= changeFormatPrice(menu.price) %></td>
+                            <td><%= menu.quantity %></td>
+                            <td style="width: 180px">
+                                <div class="text-center">
+                                    <a href="/user/admin/<%= menu.id %>/edit" class="btn btn-primary">Edit</a>
+                                    <a href="/user/admin/<%= menu.id %>/delete" class="btn btn-danger">Delete</a>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 

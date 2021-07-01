@@ -1,42 +1,42 @@
 <%- include('./partials/header') %>
 <%- include('./partials/navbar') %>
 <!-- CONTENT HERE -->
-<div class="container">
+<div class="container mt-2 text-center">
+  <h3>Profile Info</h3>
+  <hr>
+</div>
+<div class="container mt-5">
     <table class="table">
         <tbody>
             <tr>
               <th>First Name</th>
-              <td><%= dataUser[0].first_name %></td>
+              <td><%= dataUser.first_name %></td>
             </tr>
             <tr>
               <th>Last Name</th>
-              <td><%= dataUser[0].last_name %></td>
+              <td><%= dataUser.last_name %></td>
             </tr>
             <tr>
               <th>Email</th>
-              <td><%= dataUser[0].email %></td>
+              <td><%= dataUser.email %></td>
             </tr>
             <tr>
               <th>Phone Number</th>
-              <td><%= dataUser[0].phone_number %></td>
+              <td><%= dataUser.phone_number %></td>
             </tr>
             <tr>
                 <th>Birth Date</th>
-                <td><%= dataUser[0].birth_date.toISOString().split('T')[0] %></td>
+                <td><%= dataUser.birth_date.toISOString().split('T')[0] %></td>
             </tr>
             <tr>
                 <th>Address</th>
-                <td><%= dataUser[0].address %></td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td><%= dataUser[0].password %></td>
+                <td><%= dataUser.address %></td>
             </tr>
           </tbody>
       </table>
       <div class="text-center">
-        <a href="/user/profile/<%= dataUser[0].id %>/edit" class="btn btn-warning">Edit Data</a>
-        <a href="/user/profile/<%= dataUser[0].id %>/delete" class="btn btn-danger" onClick="return confirm('Are you sure?')">Delete Account</a>
+        <a href="/user/profile/<%= dataUser.id %>/edit" class="btn btn-warning">Edit Data</a>
+        <a href="/user/profile/<%= dataUser.id %>/delete" class="btn btn-danger" onClick="return confirm('Are you sure?')">Delete Account</a>
     </div>
 </div>
 

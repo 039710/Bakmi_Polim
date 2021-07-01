@@ -18,17 +18,19 @@
                     <span class="badge badge-warning"><%= menu.name.includes('Original') ? "Original" : menu.name.includes('Yamin') ? "Yamin" : "Shirataki" %></span>
                     <h5 class="card-title product-card-name font-weight-bold"><%= menu.name %></h5>
                     <div class = "d-flex justify-content-between">
-                        <p class="product-card-price">Price : <%= menu.price %></p>
+                        <p class="product-card-price"><%= changeFormatPrice(menu.price) %></p>
                         <p class="product-card-stock">Stock:<%= menu.quantity %></p>
                     </div>
                     <span class="badge badge-primary"> Description</span>
                     <div class="description">
                         <p><%= menu.description.substring(0,95) %>...</p>
                     </div>
-                    <span class="d-inline-block mt-1" style="width: 100%; text-align: right;">
-                        <!-- <a href="#" class="btn btn-success btn-addToCart">Add to cart</a> -->
-                        <button class="btn btn-success btn-addToCart" onClick="addToCart(<%= menu.id %>)">Add to cart</button> 
-                    </span>
+                    <div class = "d-flex justify-content-start">
+                        <span class="d-inline-block mt-1" style="width: 100%; text-align: right;">
+                            <input type="number" name="" id="purchasedQuantity" placeholder="0" size = "2" style="height:32px; ">
+                            <button class="btn btn-success btn-addToCart" onClick="addToCart(<%= menu.id %>)">Add to cart</button> 
+                        </span>
+                    </div>
                 </div>
             </div>
             <% }) %>

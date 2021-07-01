@@ -10,7 +10,7 @@
             <span class="badge badge-warning"><%= foods.name.includes('Original') ? "Original" : foods.name.includes('Yamin') ? "Yamin" : "Shirataki" %></span>
             <h5 class="card-title product-card-name font-weight-bold"><%= foods.name %></h5>
             <div class = "d-flex justify-content-between">
-                <p class="product-card-price">Price : <%= foods.price %></p>
+                <p class="product-card-price"><%= changeFormatPrice(foods.price) %></p>
                 <p class="product-card-stock">Stock:<%= foods.quantity %></p>
             </div>
             <span class="badge badge-primary"> Description</span>

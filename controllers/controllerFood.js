@@ -1,27 +1,23 @@
 const {Food} = require('../models/index')
+const changeFormatPrice = require('../helper/changeFormatPrice')
 class Controller{
     static getHomePage(req,res){
         Food.findAll().then((foods)=>{
-            console.log(req.session)
-            console.log(req.session.user)
             if(!req.session.user){
-                res.render('index',{foods,title : 'Home Page',user:{id : 0}})
+                res.render('index',{foods,title : 'Home Page',user:{id : 0},changeFormatPrice})
             }else{
-                res.render('index',{foods,title : 'Home Page',user:req.session.user})
+                res.render('index',{foods,title : 'Home Page',user:req.session.user,changeFormatPrice})
                 
             }
         }).catch((err)=>{
-            console.log(err.message)
             res.send(err)
         })
     }
     static getDetails(req,res){
-        console.log(req.params.id)
         Food.findByPk(+req.params.id).then((foods=>{
-            res.render('food-details',{foods , title : `${foods.name}`,user:{} })
+            res.render('food-details',{foods , title : `${foods.name}`,user:{} ,changeFormatPrice})
         }))
         .catch((err)=>{
-            console.log(err)
             res.send(err)
         })
     }

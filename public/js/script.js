@@ -9,7 +9,6 @@ function generateCart(cartItem){
     console.log(cartItem.length)
     for(let i = 0; i <cartItem.length; i++){
         let data = cartItem[i]
-        // console.log(data)
         let tableBody = document.querySelector("#cartTable").getElementsByTagName(`tbody`)[0];
         let row = tableBody.insertRow();
         let colBtnDelete = row.insertCell(colBtnDel);

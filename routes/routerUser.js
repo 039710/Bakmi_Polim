@@ -16,7 +16,7 @@ router.post('/register',Controller.registerPost)
 router.get('/profile',Controller.profile)
 router.get('/profile/:id/edit',Controller.profileEditGet)
 router.post('/profile/:id/edit',Controller.profileEditPost)
-router.get('/profile/:id/edit',Controller.delete)
+router.get('/profile/:id/delete',Controller.deleteUser)
 
 // admin 
 router.get('/admin',Controller.showAdminPage)
