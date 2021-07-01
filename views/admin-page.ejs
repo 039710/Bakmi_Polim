@@ -3,7 +3,7 @@
 <!-- CONTENT HERE -->
     <div class="container">
         <a href="/user/admin/add">Add Menu</a>
-        <table>
+        <table border="1" >
             <thead>
                 <tr>
                     <th>ID</th>
@@ -21,7 +21,9 @@
                         <td><%= menu.id %></td>
                         <td><%= menu.name %></td>
                         <td><%= menu.description %></td>
-                        <td><%= menu.img_url %></td>
+                        <td>
+                            <img src="<%= menu.img_url %>" alt="" width="200" height="200">
+                        </td>
                         <td><%= menu.price %></td>
                         <td><%= menu.quantity %></td>
                         <td>

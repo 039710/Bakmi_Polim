@@ -1,0 +1,51 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+<!-- CONTENT HERE -->
+    <div class="container">
+        <br>
+        <form action = "/user/register" method="post">
+            <div class="mb-3">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-control" name="first_name" placeholder="e.g: Adul">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" name="last_name" placeholder="e.g: Taulany">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" name="email" placeholder="e.g: adultaulany@gmail.com">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Phone Number</label>
+                <input type="number" class="form-control" name="phone_number" placeholder="e.g: 08123456789">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control" name="address" placeholder="e.g: Jalan Buntu">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Birth Date</label>
+                <input type="date" class="form-control" name="birth_date">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" name="password">
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-warning">Register</button>
+                <br><br>
+                <a href="/user/login">Already have an account</a>
+            </div>
+          </form>
+          <br>
+          <% errors.forEach(el=> { %>
+            <div class="alert alert-danger" role="alert">
+                <%= el %>
+            </div>
+            <% }) %>
+    </div>
+
+
+<!-- END OF CONTENT HERE -->
+<%- include('./partials/footer') %>

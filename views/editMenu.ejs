@@ -6,7 +6,7 @@
         <h1>Edit Menu</h1>
     </div>   
          <div class="container">
-            <form action = "/user/admin/<%= dataMenu.id %>/edit" method="post">
+            <form action = "/user/admin/<%= dataMenu.id %>/edit" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                   <label class="form-label">Name</label>
                   <input type="text" class="form-control" name="name" value="<%= dataMenu.name %>">
@@ -17,7 +17,9 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Image URL</label>
-                    <input type="text" class="form-control" name="img_url" value="<%= dataMenu.img_url %>">
+                    <label class="form-label">Image URL</label>
+                    <input type="file" class="form-control" 
+                    name="image_url" accept="image/png,image/jpeg">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Price</label>

@@ -1,0 +1,46 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+<!-- CONTENT HERE -->
+<div class="container">
+  <form action = "/user/profile/<%= dataUser.id %>/edit" method="post">
+    <div class="mb-3">
+      <label class="form-label">First Name</label>
+      <input type="text" class="form-control" name="first_name" value="<%= dataUser.first_name %>">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-control" name="last_name" value="<%= dataUser.last_name %>">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-control" name="email" value="<%= dataUser.email %>">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Phone Number</label>
+        <input type="number" class="form-control" name="phone_number" value="<%= dataUser.phone_number %>">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Birth Date</label>
+        <input type="date" class="form-control" name="birth_date" value="<%= dataUser.getBirthDate() %>">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" value="<%= dataUser.password %>">
+    </div>
+    <div class="text-center">
+        <button type="submit" class="btn btn-warning">Update</button>
+        <a href="/user/profile" class="btn btn-danger">Cancel</a>
+    </div>
+  </form>
+  <br>
+          <% errors.forEach(el=> { %>
+            <div class="alert alert-danger" role="alert">
+                <%= el %>
+            </div>
+            <% }) %>
+</div>
+
+
+
+<!-- END OF CONTENT HERE -->
+<%- include('./partials/footer') %>
