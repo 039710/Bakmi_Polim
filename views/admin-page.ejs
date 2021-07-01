@@ -2,6 +2,7 @@
 <%- include('./partials/navbar') %>
 <!-- CONTENT HERE -->
     <div class="container">
+        <a href="/user/admin/add">Add Menu</a>
         <table>
             <thead>
                 <tr>
@@ -11,8 +12,26 @@
                     <th>img_url</th>
                     <th>price</th>
                     <th>Stock</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
+            <tbody>
+                <% foods.forEach((menu)=>{ %>
+                    <tr>
+                        <td><%= menu.id %></td>
+                        <td><%= menu.name %></td>
+                        <td><%= menu.description %></td>
+                        <td><%= menu.img_url %></td>
+                        <td><%= menu.price %></td>
+                        <td><%= menu.quantity %></td>
+                        <td>
+                            <a href="/user/admin/<%= menu.id %>/edit">Edit</a>
+                            <a href="/user/admin/<%= menu.id %>/delete">Delete</a>
+                        </td>
+                        
+                    </tr>
+                <% }) %>
+            </tbody>
         </table>
     </div>
 
