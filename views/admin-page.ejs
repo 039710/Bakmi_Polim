@@ -37,7 +37,7 @@
                             <td style="width: 140px">
                                 <div class="text-center">
                                     <a href="/user/admin/<%= menu.id %>/edit" class="btn btn-primary">Edit</a>
-                                    <a href="/user/admin/<%= menu.id %>/delete" class="btn btn-danger">Delete</a>
+                                    <a href="/user/admin/<%= menu.id %>/delete" class="btn btn-danger" onclick="return confirm('Are you sure delete this product?')">Delete</a>
                                 </div>
                             </td>
                             
