@@ -1,0 +1,108 @@
+[
+    {
+        "name": "Bakmi Ayam Original Komplit",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Original-Komplit.jpeg",
+        "price": 30000,
+        "quantity": 1
+    },
+    {
+        "name": "Bakmi Ayam Original Bakso",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Original-Bakso.jpeg",
+        "price": 25000,
+        "quantity": 1
+    }, 
+    {
+        "name": "Bakmi Ayam Original Pangsit Goreng",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Original-Pangsit-Goreng.jpeg",
+        "price": 25000,
+        "quantity": 1
+    }, 
+    {
+        "name": "Bakmi Ayam Original Pangsit Rebus",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Original-Pangsit-Rebus.jpeg",
+        "price": 25000,
+        "quantity": 1
+    }, 
+    {
+        "name": "Bakmi Ayam Original Polos",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Original-Polos.jpeg",
+        "price": 20000,
+        "quantity": 1
+    },
+    {
+        "name": "Bakmi Ayam Yamin Komplit",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Yamin-Komplit.jpeg",
+        "price": 30000,
+        "quantity": 1
+    },
+    {
+        "name": "Bakmi Ayam Yamin Bakso",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Yamin-Bakso.jpeg",
+        "price": 25000,
+        "quantity": 1
+    }, 
+    {
+        "name": "Bakmi Ayam Yamin Pangsit Goreng",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Yamin-Pangsit-Goreng.jpeg",
+        "price": 25000,
+        "quantity": 1
+    }, 
+    {
+        "name": "Bakmi Ayam Yamin Pangsit Rebus",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Yamin-Pangsit-Rebus.jpeg",
+        "price": 25000,
+        "quantity": 1
+    }, 
+    {
+        "name": "Bakmi Ayam Yamin Polos",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Yamin-Polos.jpeg",
+        "price": 20000,
+        "quantity": 1
+    },
+    {
+        "name": "Bakmi Ayam Shirataki Komplit",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Shirataki-Komplit.jpeg",
+        "price": 40000,
+        "quantity": 1
+    },
+    {
+        "name": "Bakmi Ayam Shirataki Bakso",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Shirataki-Bakso.jpeg",
+        "price": 41000,
+        "quantity": 1
+    }, 
+    {
+        "name": "Bakmi Ayam Shirataki Pangsit Goreng",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Shirataki-Pangsit-Goreng.jpeg",
+        "price": 40000,
+        "quantity": 1
+    }, 
+    {
+        "name": "Bakmi Ayam Shirataki Pangsit Rebus",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Shirataki-Pangsit-Rebus.jpeg",
+        "price": 40000,
+        "quantity": 1
+    }, 
+    {
+        "name": "Bakmi Ayam Shirataki Polos",
+        "description": "tes",
+        "img_url": "../assets/bakmipolim/Bakmi-Ayam-Shirataki-Polos.jpeg",
+        "price": 35000,
+        "quantity": 1
+    }
+
+]
