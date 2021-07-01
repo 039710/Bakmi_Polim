@@ -1,10 +1,13 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
+const router = require('./routes')
+const path = require('path')
 
+app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended : true}))
-app.set('view engine', 'ehs')
-
+app.use(router)
+app.use(express.static(__dirname + '/public')); // serve static files to public directory
 
 
 app.listen(port, ()=>{

@@ -1,0 +1,34 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+<!-- CONTENT HERE -->
+
+<!-- Catalog Section -->
+<div class="container">
+    <!-- <div class="mt-4 jumbotron jumbotron-fluid" style="border-radius: 20px;">
+        <h1 class="display-4">Ads Here</h1>
+        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.
+        </p>
+    </div> -->
+    <div id="content" class="mt-5 d-flex flex-wrap product-catalog justify-content-center">
+    <% foods.forEach((menu)=>{ %>
+            <div class="card" style="width: 18rem;">
+                <img src="<%= menu.img_url %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <!-- Yamin Original Shirataki -->
+                    <span class="badge badge-warning"><%= menu.name.includes('Original') ? "Original" : menu.name.includes('Yamin') ? "Yamin" : "Shirataki" %></span>
+                    <h5 class="card-title product-card-name font-weight-bold"><%= menu.name %></h5>
+                    <p class="product-card-price">Price : <%= menu.price %></p>
+                    <p class="product-card-stock">Stock:  <%= menu.quantity %></p>
+                    <span class="d-inline-block" style="width: 100%; text-align: right;">
+                        <a href="#" class="btn btn-success btn-addToCart">Add to cart</a>
+                    </span>
+                </div>
+            </div>
+            <% }) %>
+    <div>
+</div>
+<!-- END PRODUCT PAGE SECTION  -->
+
+
+<!-- END OF CONTENT HERE -->
+<%- include('./partials/footer') %>

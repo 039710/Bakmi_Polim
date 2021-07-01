@@ -11,7 +11,7 @@ module.exports = {
       FoodId: {
         type: Sequelize.INTEGER,
         references: {
-          model : 'Foods',
+          model : 'Food',
           keys : 'id'
         },
         onDelete: 'cascade',
