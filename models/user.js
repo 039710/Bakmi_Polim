@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         notEmpty: {
-          msg: 'First name cannot be empty!',
+          msg: 'First name cannot be empty!'
         },
         len: {
           args : [2,30],
@@ -34,11 +34,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         notEmpty: {
-          msg: 'Last name cannot be empty!',
+          msg: 'Last name cannot be empty!'
         },
         len: {
           args : [2,30],
-          msg: 'Length of last name must be 4 characters upto 30 characters'
+          msg: 'Length of last name must be 2 characters upto 30 characters'
         }
       }
     },
@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         notEmpty: {
-          msg: 'Email cannot be empty!',
+          msg: 'Email cannot be empty!'
         },
         isEmail: {
           msg: 'Fill with the right email address format!'
@@ -93,7 +93,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         len: {
           args : [5,100],
-          msg: 'Length of Passowrd must be 5 characters upto 100 characters'
+          msg: 'Length of Password must be 5 characters upto 100 characters'
         }
       }
     },

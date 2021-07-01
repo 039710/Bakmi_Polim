@@ -15,7 +15,11 @@ class Controller{
     }
     static getDetails(req,res){
         Food.findByPk(+req.params.id).then((foods=>{
-            res.render('food-details',{foods , title : `${foods.name}`,user:{} ,changeFormatPrice})
+            if (req.session.user.id) {
+                res.render('food-details',{foods , title : `${foods.name}`,user:req.session.user ,changeFormatPrice})   
+            } else {
+                res.render('food-details',{foods , title : `${foods.name}`,user:{id : 0} ,changeFormatPrice})
+            }
         }))
         .catch((err)=>{
             res.send(err)

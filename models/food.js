@@ -18,11 +18,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       validate: {
         notEmpty: {
-          msg: 'name cannot be empty!',
+          msg: 'Name cannot be empty!'
         },
         len: {
-          args : [4,100],
-          msg: 'length of name must be 4 characters upto 10 characters'
+          args : [2,100],
+          msg: 'Length of name must be 2 characters upto 100 characters!'
         }
       }
     },
@@ -30,11 +30,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       validate: {
         notEmpty: {
-          msg: 'description cannot be empty!',
+          msg: 'Description cannot be empty!'
         },
         len: {
-          args : [10,500],
-          msg: 'length of first description must be 4 characters upto 300 characters'
+          args : [4,500],
+          msg: 'Length of description must be 4 characters upto 300 characters!'
         }
       }
     },
@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       validate: {
         notEmpty: {
-          msg: 'please select a image!',
+          msg: 'Please select an image!'
         },
       }
     },
@@ -50,11 +50,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       validate: {
         notEmpty: {
-          msg: 'price! cant be empty!',
+          msg: 'Price cannot be empty!',
         },
         min : {
           args : 1000,
-          msg: 'harga makanan minimal  1000'
+          msg: 'Minimal food price is 1000!'
         }
       }
     },
@@ -62,11 +62,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       validate: {
         notEmpty: {
-          msg: 'quantity cant be empty!',
+          msg: 'Quantity cannot be empty!'
         },
         min : {
           args : 1,
-          msg: 'minimal stock 1'
+          msg: 'Minimal stock is 1!'
         }
       }
     },

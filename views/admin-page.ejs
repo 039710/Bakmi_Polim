@@ -11,16 +11,16 @@
                 <a href="/user/admin/add" class="btn btn-warning">Add Menu</a>
             </div>
             <br>
-            <table class="table table-bordered" >
+            <table class="table-bordered" >
                 <thead>
                     <tr class="bg-warning">
                         <th>ID</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Image</th>
-                        <th>Price</th>
+                        <th style="width: 90px">Price</th>
                         <th>Stock</th>
-                        <th style="width: 180px">Actions</th>
+                        <th style="width: 120px">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,7 +34,7 @@
                             </td>
                             <td><%= changeFormatPrice(menu.price) %></td>
                             <td><%= menu.quantity %></td>
-                            <td style="width: 180px">
+                            <td style="width: 140px">
                                 <div class="text-center">
                                     <a href="/user/admin/<%= menu.id %>/edit" class="btn btn-primary">Edit</a>
                                     <a href="/user/admin/<%= menu.id %>/delete" class="btn btn-danger">Delete</a>
