@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      User.belongsToMany(models.User,{through: models.Invoice, as : 'invoice'})
+      User.belongsToMany(models.Food,{through: models.Invoice})
     }
     getBirthDate() {
       return new Date(this.birth_date).toISOString().split('T')[0]
