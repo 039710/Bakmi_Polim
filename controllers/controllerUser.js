@@ -271,6 +271,21 @@ class Controller{
             res.send(err)
         })
     }
+    static EditStatus(req,res){
+        Invoice.findOne({
+            where : {
+                FoodId : +req.params.FoodId,
+                UserId : +req.params.UserId,
+            }
+        }).then((invoice)=>{
+            console.log(invoice)
+            invoice.status = 'Completed'
+            invoice.save()
+            res.redirect('/user/admin/orders')
+        }).catch(err => {
+            res.send(err.message)
+        })
+    }
 }
 
 module.exports = Controller

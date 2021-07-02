@@ -10,6 +10,7 @@
                 <th>Food Name</th>
                 <th>Quantity</th>
                 <th>Status</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -20,11 +21,13 @@
                         <td><%= food.name %></td>
                         <td><%= food.Invoice.quantity_per_item %></td>
                         <td><%= food.Invoice.status %></td>
+                        <td>
+                            <a href="/user/admin/editStatus/<%=food.id%>/<%= user.id%>" class="btn btn-primary">Mark as Complete</a>
+                        </td>
                     </tr>
                 <% }) %>
             <% }) %>
         </tbody>
-
     </table>
 </div>
 

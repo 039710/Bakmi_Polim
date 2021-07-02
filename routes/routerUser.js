@@ -30,4 +30,5 @@ router.get('/admin/:id/delete',Controller.delete)
 router.get('/invoice/:id',Controller.getInvoice)
 
 router.get('/admin/orders',Controller.orderList)
+router.get('/admin/editStatus/:FoodId/:UserId',Controller.EditStatus)
 module.exports = router
