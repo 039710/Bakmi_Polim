@@ -1,0 +1,32 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+<!-- CONTENT HERE -->
+
+<div>
+    <!-- <h4><%= JSON.stringify(users)%></h4> -->
+</div>
+<!-- END OF CONTENT HERE -->
+<div class="container text-center">
+    <h3>your orders</h3>
+    <table border="1" cellspacing="" class = "table">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Quantity</td>
+                <td>Image</td>
+                <td>Status</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.Food.forEach((current)=>{ %>
+                <tr>
+                    <td><%= current.name %></td>
+                    <td><%= current.Invoice.quantity_per_item %></td>
+                    <td><img src="<%= current.img_url %>" width="150" height="150" alt=""></td>
+                    <td><%= current.Invoice.status%></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<%- include('./partials/footer') %>

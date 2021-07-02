@@ -1,0 +1,30 @@
+<%- include('./partials/header') %>
+<%- include('./partials/navbar') %>
+<!-- CONTENT HERE -->
+
+<div id="content" class="mt-5 d-flex flex-wrap product-catalog justify-content-center">
+    <div class="card" style="width: 25rem;">
+        <img src="<%= foods.img_url %>" class="card-img-top" id ="img" alt="...">
+        <div class="card-body">
+            <!-- Yamin Original Shirataki -->
+            <span class="badge badge-warning"><%= foods.name.includes('Original') ? "Original" : foods.name.includes('Yamin') ? "Yamin" : "Shirataki" %></span>
+            <h5 class="card-title product-card-name font-weight-bold"><%= foods.name %></h5>
+            <div class = "d-flex justify-content-between">
+                <p class="product-card-price"><%= changeFormatPrice(foods.price) %></p>
+                <p class="product-card-stock">Stock:<%= foods.quantity %></p>
+            </div>
+            <span class="badge badge-primary"> Description</span>
+            <div class="description">
+                <p><%= foods.description%>...</p>
+            </div>
+            <span class="d-inline-block mt-1" style="width: 100%; text-align: right;">
+                <!-- <a href="#" class="btn btn-success btn-addToCart">Add to cart</a> -->
+                <input type="number" name="" id="purchasedQuantityId<%=foods.id%>" placeholder="0" size = "2" style="height:32px; ">
+                <button class="btn btn-success btn-addToCart" onClick="addToCart(<%= foods.id %>)">Add to cart</button> 
+            </span>
+        </div>
+    </div>
+</div>
+<script src="/js/script.js"></script>
+<!-- END OF CONTENT HERE -->
+<%- include('./partials/footer') %>

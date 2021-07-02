@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <a class="navbar-brand" href="/">Bakmi Polim</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <% if(user.id) { %>
+                <li class="nav-item" id = "userId">
+                    <a class="nav-link" id = "<%=user.id%>" href='/user/profile'>Your Profile</a>
+                </li>           
+                <li class="nav-item">
+                    <a class="nav-link" href='/user/invoice/<%=user.id%>'>Your order</a>
+                </li>
+            <% } %>
+            <div class="form-inline my-2 my-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" <%= user.id ? `href=/user/logout` : `href=/user/login` %> >
+                        <%= user.id ? "Logout" : "Login" %>
+                    </a>
+                </li>
+            </div>
+
+            
+            
+            <li class="ml-2 nav-item">
+                <!-- Cart button and Cart Modal -->
+                <button id="btn-cart" type="button" data-toggle="modal" data-target="#contohModal"><i
+                        class="fas fa-shopping-cart"></i></button>
+                <div class="modal fade" id="contohModal" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header text-center">
+                                <h5 class="modal-title w-100 cart-title">My Cart</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" style="color: white;">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <table id="cartTable" class="table table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th id="col-cart-img" scope="col"></th>
+                                            <th id="col-cart-info" scope="col" style="font-size: 1.5rem;">Product</th>
+                                            <th id="col-btn-delete-cart" scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td scope="row" id="productCartImgBody" class="product-cart-img"></td>
+                                            <td scope="row" class="product-cart-info" id="productCartInfoBody"></td>
+                                            <td scope="row" class="btn-cart-delete" id="productCartBtnDelBody"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="d-flex justify-content-center modal-footer" style="background-color: #fff;">
+                                <button id="btn-checkout" class="btn btn-warning font-weight-bold">Checkout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>

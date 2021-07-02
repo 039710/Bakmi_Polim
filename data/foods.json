@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Bakmi Ayam Original Komplit",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sapien ipsum, convallis et tempor in, luctus quis arcu. Cras convallis diam id nulla venenatis blandit. Phasellus at turpis at quam sollicitudin vestibulum non ut eros. Integer non massa suscipit, iaculis quam et, pellentesque erat. Nullam sodales nisl et leo euismod, at convallis ante dignissim. Cras auctor eget felis ut laoreet. Pellentesque mollis sit amet mi vitae placerat. ",
+        "img_url": "/bakmipolim/Bakmi-Ayam-Original-Komplit.jpeg",
+        "price": 30000,
+        "quantity": 5
+    },
+    {
+        "name": "Bakmi Ayam Original Bakso",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sapien ipsum, convallis et tempor in, luctus quis arcu. Cras convallis diam id nulla venenatis blandit. Phasellus at turpis at quam sollicitudin vestibulum non ut eros. Integer non massa suscipit, iaculis quam et, pellentesque erat. Nullam sodales nisl et leo euismod, at convallis ante dignissim. Cras auctor eget felis ut laoreet. Pellentesque mollis sit amet mi vitae placerat. ",
+        "img_url": "/bakmipolim/Bakmi-Ayam-Original-Bakso.jpeg",
+        "price": 25000,
+        "quantity": 10
+    }, 
+    {
+        "name": "Bakmi Ayam Original Pangsit Goreng",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sapien ipsum, convallis et tempor in, luctus quis arcu. Cras convallis diam id nulla venenatis blandit. Phasellus at turpis at quam sollicitudin vestibulum non ut eros. Integer non massa suscipit, iaculis quam et, pellentesque erat. Nullam sodales nisl et leo euismod, at convallis ante dignissim. Cras auctor eget felis ut laoreet. Pellentesque mollis sit amet mi vitae placerat. ",
+        "img_url": "/bakmipolim/Bakmi-Ayam-Original-Pangsit-Goreng.jpeg",
+        "price": 25000,
+        "quantity": 10
+    }, 
+    {
+        "name": "Bakmi Ayam Original Pangsit Rebus",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sapien ipsum, convallis et tempor in, luctus quis arcu. Cras convallis diam id nulla venenatis blandit. Phasellus at turpis at quam sollicitudin vestibulum non ut eros. Integer non massa suscipit, iaculis quam et, pellentesque erat. Nullam sodales nisl et leo euismod, at convallis ante dignissim. Cras auctor eget felis ut laoreet. Pellentesque mollis sit amet mi vitae placerat. ",
+        "img_url": "/bakmipolim/Bakmi-Ayam-Original-Pangsit-Rebus.jpeg",
+        "price": 25000,
+        "quantity": 10
+    }, 
+    {
+        "name": "Bakmi Ayam Original Polos",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sapien ipsum, convallis et tempor in, luctus quis arcu. Cras convallis diam id nulla venenatis blandit. Phasellus at turpis at quam sollicitudin vestibulum non ut eros. Integer non massa suscipit, iaculis quam et, pellentesque erat. Nullam sodales nisl et leo euismod, at convallis ante dignissim. Cras auctor eget felis ut laoreet. Pellentesque mollis sit amet mi vitae placerat. ",
+        "img_url": "/bakmipolim/Bakmi-Ayam-Original-Polos.jpeg",
+        "price": 20000,
+        "quantity": 10
+    },
+    {
+        "name": "Bakmi Ayam Yamin Komplit",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sapien ipsum, convallis et tempor in, luctus quis arcu. Cras convallis diam id nulla venenatis blandit. Phasellus at turpis at quam sollicitudin vestibulum non ut eros. Integer non massa suscipit, iaculis quam et, pellentesque erat. Nullam sodales nisl et leo euismod, at convallis ante dignissim. Cras auctor eget felis ut laoreet. Pellentesque mollis sit amet mi vitae placerat. ",
+        "img_url": "/bakmipolim/Bakmi-Ayam-Yamin-Komplit.jpeg",
+        "price": 30000,
+        "quantity": 10
+    },
+    {
+        "name": "Bakmi Ayam Yamin Bakso",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sapien ipsum, convallis et tempor in, luctus quis arcu. Cras convallis diam id nulla venenatis blandit. Phasellus at turpis at quam sollicitudin vestibulum non ut eros. Integer non massa suscipit, iaculis quam et, pellentesque erat. Nullam sodales nisl et leo euismod, at convallis ante dignissim. Cras auctor eget felis ut laoreet. Pellentesque mollis sit amet mi vitae placerat. ",
+        "img_url": "/bakmipolim/Bakmi-Ayam-Yamin-Bakso.jpeg",
+        "price": 25000,
+        "quantity": 10
+    }, 
+    {
+        "name": "Bakmi Ayam Yamin Pangsit Goreng",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sapien ipsum, convallis et tempor in, luctus quis arcu. Cras convallis diam id nulla venenatis blandit. Phasellus at turpis at quam sollicitudin vestibulum non ut eros. Integer non massa suscipit, iaculis quam et, pellentesque erat. Nullam sodales nisl et leo euismod, at convallis ante dignissim. Cras auctor eget felis ut laoreet. Pellentesque mollis sit amet mi vitae placerat. ",
+        "img_url": "/bakmipolim/Bakmi-Ayam-Yamin-Pangsit-Goreng.jpeg",
+        "price": 25000,
+        "quantity": 10
+    }
+]
