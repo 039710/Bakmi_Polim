@@ -18,10 +18,13 @@
                 <p><%= foods.description%>...</p>
             </div>
             <span class="d-inline-block mt-1" style="width: 100%; text-align: right;">
-                <a href="#" class="btn btn-success btn-addToCart">Add to cart</a>
+                <!-- <a href="#" class="btn btn-success btn-addToCart">Add to cart</a> -->
+                <input type="number" name="" id="purchasedQuantityId<%=foods.id%>" placeholder="0" size = "2" style="height:32px; ">
+                <button class="btn btn-success btn-addToCart" onClick="addToCart(<%= foods.id %>)">Add to cart</button> 
             </span>
         </div>
     </div>
 </div>
+<script src="/js/script.js"></script>
 <!-- END OF CONTENT HERE -->
 <%- include('./partials/footer') %>

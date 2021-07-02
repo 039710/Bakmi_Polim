@@ -6,26 +6,23 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Foods</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" <%= user.id ? `href=/user/profile` : `href=#` %> >
-                    <%= user.id ? "Your Profile" : "" %>
-                </a>
-            </li>
+            <% if(user.id) { %>
+                <li class="nav-item" id = "userId">
+                    <a class="nav-link" id = "<%=user.id%>" href='/user/profile'>Your Profile</a>
+                </li>           
+                <li class="nav-item">
+                    <a class="nav-link" href='/user/invoice/<%=user.id%>'>Your order</a>
+                </li>
+            <% } %>
+            <div class="form-inline my-2 my-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" <%= user.id ? `href=/user/logout` : `href=/user/login` %> >
+                        <%= user.id ? "Logout" : "Login" %>
+                    </a>
+                </li>
+            </div>
+
             
-            <li class="nav-item">
-                <!-- <a class="nav-link" href="#">Your order</a> -->
-                <a class="nav-link" <%= user.id ? `href=/user/order` : `href=#` %> >
-                    <%= user.id ? "Your order" : "" %>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" <%= user.id ? `href=/user/logout` : `href=/user/login` %> >
-                    <%= user.id ? "Logout" : "Login" %>
-                </a>
-            </li>
             
             <li class="ml-2 nav-item">
                 <!-- Cart button and Cart Modal -->

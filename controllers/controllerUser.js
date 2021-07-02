@@ -1,4 +1,4 @@
-const {Food,User} = require('../models/index')
+const {Food,User,Invoice} = require('../models/index')
 const {Op} = require('sequelize')
 const changeFormatPrice = require('../helper/changeFormatPrice')
 let bcrypt = require('bcryptjs');
@@ -65,9 +65,9 @@ class Controller{
         .then(dataUser => {
             if(dataUser){
                 if(req.session.user.id){
-                    res.render('profile',{dataUser, title : 'Profile',user:req.session.user})
+                    res.render('profile',{dataUser, title : 'Profile',user:req.session.user,greeting : User.greeting(dataUser.first_name)})
                 }else{
-                    res.render('profile',{dataUser, title : 'Profile',user:{id : 0}})
+                    res.render('profile',{dataUser, title : 'Profile',user:{id : 0}, greeting : User.greeting(dataUser.first_name)})
                 }
             }else{
                 res.redirect('/')
@@ -84,7 +84,11 @@ class Controller{
             if (req.query.message) {
                 errors = req.query.message.split(',')
             }
-            res.render('editProfile.ejs', {dataUser, title : 'Profile Edit', errors, user:{}})
+            if(req.session.user.id){
+                res.render('editProfile.ejs',{dataUser, title : 'Edit Profile',user:req.session.user, errors})
+            }else{
+                res.render('editProfile.ejs',{dataUser, title : 'Edit Profile',user:{id : 0}, errors})
+            }
         })
         .catch(err => {
             res.send(err.message)
@@ -144,14 +148,18 @@ class Controller{
 
     static addGet(req, res) {
         let errors = []
-            if (req.query.message) {
-                errors = req.query.message.split(',')
-            }
-        res.render('addMenu.ejs', {title : 'Admin Page - Add Menu',user:{},errors})
+        if (req.query.message) {
+            errors = req.query.message.split(',')
+        }
+        if (req.session.user.id) {
+            res.render('addMenu.ejs',{title : 'Admin Page - Add Menu',user:req.session.user,errors})   
+        } else {
+            res.render('addMenu.ejs',{title : 'Admin Page - Add Menu',user:{id : 0},errors})
+        }
     }
 
     static addPost(req,res) {
-        let url;
+        let url = ''
         if(req.file){
             url = req.file.path.split('\\').join('/')
             url = url.substring(6,url.length)
@@ -174,29 +182,45 @@ class Controller{
     }
 
     static editGet(req, res){
+        let errors = []
+        if (req.query.message) {
+            errors = req.query.message.split(',')
+        }
         Food.findByPk(+req.params.id).then(dataMenu => {
-                res.render('editMenu.ejs', { dataMenu, title : 'Admin Page - Edit Menu',user:{}})
-            })
-            .catch(err => {
-                res.send(err)
-            })
+            console.log(dataMenu);
+            if (req.session.user.id) {
+                res.render('editMenu.ejs',{dataMenu , title : `${dataMenu.name}`,user:req.session.user ,changeFormatPrice, errors})   
+            } else {
+                res.render('editMenu.ejs',{dataMenu , title : `${dataMenu.name}`,user:{id : 0} ,changeFormatPrice, errors})
+            }
+        })
+        .catch(err => {
+            res.send(err)
+        })
     }
 
     static editPost(req, res) {
-        let url = req.file.path.split('\\').join('/')
-        url = url.substring(6,url.length)
+        let id = +req.params.id
         let editedMenu = {
             name: req.body.name,
             description: req.body.description,
-            img_url: url,
             price: req.body.price,
             quantity: req.body.quantity
         }
+        if(req.file){
+            let url = req.file.path.split('\\').join('/')
+            url = url.substring(6,url.length)
+            editedMenu["img_url"] = url
+        }else{
+            editedMenu["img_url"] = ""
+        }
         Food.update(editedMenu,{where: {id: req.params.id}}).then(() => {
+            console.log(editedMenu);
                 res.redirect('/user/admin')
             })
             .catch(err => {
-                res.send(err)
+                let errorMessages = err.errors.map(el => el.message)
+                res.redirect(`/user/admin/${id}/edit?message=${errorMessages}`)
             })
     }
 
@@ -205,6 +229,23 @@ class Controller{
             res.redirect('/user/admin')
         })
         .catch(err => {
+            res.send(err)
+        })
+    }
+    static getInvoice(req,res){
+        User.findByPk(+req.params.id,{
+            include : Food
+        })
+        .then(rest=>{
+            console.log(req.session.user,'---------------')
+            if(!req.session.user){
+                res.render('order',{users : rest, title :'your orders', user : {id:0}})
+            }else{
+                res.render('order',{users : rest, title :'your orders', user : req.session.user})
+            }
+        })
+        .catch(err => {
+            console.log(err.message)
             res.send(err)
         })
     }

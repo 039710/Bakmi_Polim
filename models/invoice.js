@@ -19,6 +19,11 @@ module.exports = (sequelize, DataTypes) => {
     quantity_per_item: DataTypes.INTEGER,
     status: DataTypes.STRING
   }, {
+    hooks : {
+      beforeCreate : (instance,option)=>{
+        instance.status = "not delivered"
+      }
+    },
     sequelize,
     modelName: 'Invoice',
   });

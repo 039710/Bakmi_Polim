@@ -26,4 +26,7 @@ router.get('/admin/:id/edit',Controller.editGet)
 router.post('/admin/:id/edit',upload.single('image_url'),Controller.editPost)
 router.get('/admin/:id/delete',Controller.delete)
 
+//invoice
+router.get('/invoice/:id',Controller.getInvoice)
+
 module.exports = router
