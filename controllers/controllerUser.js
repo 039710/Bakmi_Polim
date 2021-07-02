@@ -3,6 +3,28 @@ const {Op} = require('sequelize')
 const changeFormatPrice = require('../helper/changeFormatPrice')
 let bcrypt = require('bcryptjs');
 class Controller{
+    static orderList(req, res) {
+        User.findAll({
+            include : Food
+        }).
+        then((users)=>{
+            users = users.filter((user)=>{
+                if(user.Food !== null){
+                    return user
+                }
+            })
+            console.log(users)
+            if(req.session.user.id){
+                res.render('admin-order',{title : 'admin page', users, user : req.session.user})
+            }else{
+                res.render('admin-order',{title : 'admin page', users, user : {id:0} })
+            }
+        })
+        .catch((err)=>{
+            console.log(err.message)
+            res.send(err)
+        })
+    }
     static logOut(req,res){
         req.session.destroy()
         res.redirect('/')

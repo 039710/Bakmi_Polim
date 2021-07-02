@@ -59,7 +59,7 @@ function addToCart(id) {
             cartItem.push(data)
             localStorage.setItem(`cartItems`, JSON.stringify(cartItem));
         }else{
-            alert('Cant buy more than stock!!!')
+            alert('Check your input')
             window.location.href = '/';
         }
     })
